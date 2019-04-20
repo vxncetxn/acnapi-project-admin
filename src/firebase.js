@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/messaging";
 
 var config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,4 +16,15 @@ firebase.initializeApp(config);
 
 const db = firebase.firestore();
 
-export { db, firebase };
+const messaging = firebase.messaging();
+
+// messaging.onMessage(payload => {
+//   const groups = localStorage.getItem("subscriptionGroups").split(", ");
+
+//   console.log("onMessage: ", payload);
+//   console.log(groups);
+//   console.log(payload.data.group);
+//   console.log(groups.includes(payload.data.group));
+// });
+
+export { db, messaging, firebase };

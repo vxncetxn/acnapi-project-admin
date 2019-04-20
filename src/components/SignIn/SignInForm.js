@@ -134,7 +134,7 @@ const SignInFormComp = props => {
       localStorage.setItem("admin-logged-in-jti", "blablabla");
       localStorage.setItem("admin-logged-in-userid", user_id);
       history.replace({
-        pathname: `/dashboard=blablabla`,
+        pathname: `/main=blablabla`,
         state: {
           jti: "blablabla",
           userID: user_id

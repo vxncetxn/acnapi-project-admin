@@ -9,29 +9,29 @@ import history from "../history";
 import { db } from "../firebase";
 import useCollection from "./useCollection";
 
-const Dashboard = () => {
-  const histObject = history.location;
+const Dashboard = ({ user }) => {
+  // const histObject = history.location;
 
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    if (!histObject.state) {
-      return;
-    }
-    // db.doc(`users/${histObject.state.userID}`)
-    //   .get()
-    //   .then(response => {
-    //     setUser({
-    //       ...response.data(),
-    //       id: response.id
-    //     });
-    //   });
-    db.doc(`users/${histObject.state.userID}`).onSnapshot(snapshot => {
-      setUser({
-        ...snapshot.data(),
-        id: snapshot.id
-      });
-    });
-  }, []);
+  // const [user, setUser] = useState(null);
+  // useEffect(() => {
+  //   if (!histObject.state) {
+  //     return;
+  //   }
+  //   // db.doc(`users/${histObject.state.userID}`)
+  //   //   .get()
+  //   //   .then(response => {
+  //   //     setUser({
+  //   //       ...response.data(),
+  //   //       id: response.id
+  //   //     });
+  //   //   });
+  //   db.doc(`users/${histObject.state.userID}`).onSnapshot(snapshot => {
+  //     setUser({
+  //       ...snapshot.data(),
+  //       id: snapshot.id
+  //     });
+  //   });
+  // }, []);
 
   let tickets;
   if (user) {
@@ -65,8 +65,6 @@ const Dashboard = () => {
   } else {
     tickets = useCollection("tickets");
   }
-
-  console.log("FULL LIST OF TICKETS IN DASHBOARD: ", tickets);
 
   useEffect(() => {
     if (user) {
@@ -105,13 +103,9 @@ const Dashboard = () => {
     fetchOverviewStatus(tickets);
   }, [tickets]);
 
-  return histObject.state &&
-    // user &&
-    // tickets &&
-    // user.name &&
-    localStorage.getItem("admin-logged-in-jti") === histObject.state.jti ? (
+  return (
     <div className="dashboard">
-      <Navbar user={user} />
+      {/* <Navbar user={user} /> */}
       <h1 className="dashboard-title">
         Welcome to Your Dashboard, {user && user.name}
       </h1>
@@ -122,7 +116,7 @@ const Dashboard = () => {
       </div>
       {/* <div className="copyright">© Class 1 Group 10, 2019</div> */}
     </div>
-  ) : null;
+  );
 };
 
 export default Dashboard;

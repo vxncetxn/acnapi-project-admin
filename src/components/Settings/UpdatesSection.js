@@ -8,6 +8,13 @@ const UpdatesSection = styled.div`
   //   border: 1px solid black;
 `;
 
+const UpdatesTitle = styled.h2`
+  font-size: 1.6rem;
+  color: #334e68;
+  font-weight: 400;
+  margin-bottom: 3rem;
+`;
+
 const UpdateItem = styled.div`
   display: flex;
   justify-content: space-between;
@@ -27,16 +34,7 @@ const ItemToggle = styled.span``;
 const UpdatesSectionComp = ({ user }) => {
   return (
     <UpdatesSection>
-      <h2
-        style={{
-          fontSize: "1.6rem",
-          color: "#334e68",
-          fontWeight: "400",
-          marginBottom: "3rem"
-        }}
-      >
-        Receive Updates When:
-      </h2>
+      <UpdatesTitle>Receive Updates When:</UpdatesTitle>
       <form
         onChange={e => {
           let updated = user.config.updates;
@@ -96,6 +94,20 @@ const UpdatesSectionComp = ({ user }) => {
                 type="checkbox"
                 className="3"
                 checked={user && user.config.updates[3]}
+              />
+              <span class="slider round" />
+            </label>
+          </ItemToggle>
+        </UpdateItem>
+        <UpdatesTitle>Push Notifications:</UpdatesTitle>
+        <UpdateItem>
+          <ItemHead>Enable background push notifications for updates</ItemHead>
+          <ItemToggle>
+            <label class="switch">
+              <input
+                type="checkbox"
+                className="4"
+                checked={user && user.config.updates[4]}
               />
               <span class="slider round" />
             </label>
