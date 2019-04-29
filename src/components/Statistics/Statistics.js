@@ -14,7 +14,7 @@ import eachDayOfInterval from "date-fns/eachDayOfInterval";
 import subDays from "date-fns/subDays";
 import daysDifference from "date-fns/differenceInCalendarDays";
 
-import useCollection from "../useCollection";
+import useCollection from "../../Hooks/useCollection";
 import StatisticsSelect from "./StatisticsSelect";
 import StatisticsLegend from "./StatisticsLegend";
 
@@ -22,9 +22,7 @@ const Statistics = styled.div`
   padding: 0 40px;
 `;
 
-const Canvas = styled.div`
-  // border: 1px solid red;
-`;
+const Canvas = styled.div``;
 
 const StatisticsTitle = styled.h1`
   margin-bottom: 3rem;
@@ -720,6 +718,11 @@ const StatisticsComp = ({ user }) => {
       <Canvas className="canvas" />
     </Statistics>
   );
+  // return (
+  //   <div style={{ marginLeft: "4rem", fontSize: "1.6rem" }}>
+  //     Work in Progress!
+  //   </div>
+  // );
 };
 
 export default StatisticsComp;

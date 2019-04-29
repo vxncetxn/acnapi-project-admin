@@ -69,7 +69,6 @@ const FormButton = styled.button`
 `;
 
 const WrongWarning = styled.div`
-  // border: 1px solid black;
   width: 100%;
   height: 3rem;
   text-align: right;
@@ -94,7 +93,7 @@ const SignInFormComp = props => {
   const handleFormSubmit = e => {
     e.preventDefault();
     // axios
-    //   .post("http://localhost:8000/api/token/", {
+    //   .post("https://stark-woodland-85926.herokuapp.com/api/token/", {
     //     username: username,
     //     password: password
     //   })
@@ -103,6 +102,7 @@ const SignInFormComp = props => {
     //     localStorage.setItem("admin-is-logged-in", true);
     //     localStorage.setItem("admin-logged-in-jti", decoded.jti);
     //     localStorage.setItem("admin-logged-in-userid", decoded.user_id);
+    //     localStorage.setItem("jwt", response.data.access);
     //     history.replace({
     //       pathname: `/dashboard=${decoded.jti}`,
     //       state: {
