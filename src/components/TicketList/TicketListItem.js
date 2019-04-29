@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../../style/TicketListItem.css";
 import { formatRelative } from "date-fns/esm";
 
 import ReactDOM from "react-dom";
 import Modal from "../Modal/Modal";
 import { db } from "../../firebase";
+import "./TicketListItem.css";
 
 const subjectTruncate = subjString => {
   if (subjString) {
